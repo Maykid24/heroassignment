@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/script.js" charset="utf-8"></script>
+    <title>Super Heroes</title>
+  </head>
+  <body>
+    <div ng-controller="whereTheHeroes">
+      <input type="text" ng-model="aliasIn" name="alias" value="" placeholder="Your Alias">
+      <input type="text" ng-model="firstIn" name="name" value="" placeholder="First Name">
+      <input type="text" ng-model="lastIn" name="name" value="" placeholder="Last Name">
+      <input type="text" ng-model="cityIn" name="name" value="" placeholder="City">
+      <select ng-model="data.model">
+        <option ng-repeat="option in data.availableOptions" value="{{option.name}}">{{option.name}}</option>
+      </select>
+      <button type="button" ng-click="addHero()">Add Hero</button>
+      <br>
+      <button ng-click="getHeroes()" name="getHeroes">Get Hero List!</button>
+      <br>
+      <table>
+      <tr>
+        <th>Alias</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>City</th>
+        <th>Power Name</th>
+        <th>Delete?</th>
+      </tr>
+      <tr ng-repeat="hero in allTheHeroes">
+        <td>{{hero.alias}}</td>
+        <td>{{hero.first_name}}</td>
+        <td>{{hero.last_name}}</td>
+        <td>{{hero.city}}</td>
+        <td>{{hero.power_name}}</td>
+        <td><button type="button" ng-click="deleteHero(hero)">Delete</button></td>
+      </tr>
+      </table>
+    </div>
+  </body>
+</html>
